@@ -1,21 +1,22 @@
 import React from 'react';
+import {Link} from "react-router-dom";
 
 const Home = () => {
     return (
-        <div>
+        <nav>
             <div>
-                <a href={'/students'} className={"h2"}>Manage Students</a>
+                <Link to={'/students'} className={"h2"}>Manage Students</Link>
             </div>
             <div>
-                <a href={'/students/id-cards'} className={"h2"}>Manage Students ID Card</a>
+                <Link to={'/students/id-cards'} className={"h2"}>Manage Students ID Card</Link>
             </div>
             <div>
-                <a href={'/books'} className={"h2"}>Manage Books</a>
+                <Link to={'/books'} className={"h2"}>Manage Books</Link>
             </div>
             <div>
-                <a href={'/courses'} className={"h2"}>Manage Courses</a>
+                <Link to={'/courses'} className={"h2"}>Manage Courses</Link>
             </div>
-        </div>
+        </nav>
     );
 };
 

@@ -1,4 +1,4 @@
-import React, {useContext, useState} from 'react';
+import React, {useContext, useRef, useState} from 'react';
 import {Button, Form} from "react-bootstrap";
 import {useNavigate} from 'react-router-dom';
 import {BaseURLContext} from "../contexts/BaseURLContext";
@@ -12,6 +12,7 @@ const AddNewStudent = () => {
     const [country, setCountry] = useState('');
     const [error, setError] = useState('');
     const [success, setSuccess] = useState('');
+    const inputRef = useRef();
     const baseUrl = useContext(BaseURLContext);
     const api = axios.create({
         baseURL: baseUrl,
@@ -34,12 +35,13 @@ const AddNewStudent = () => {
         api.post("/", student)
             .then(res => {
                 console.log('post success', res.data);
-                navigate(-1);
+                navigate('/students');
             })
             .catch(err => {
                 console.log(err.response.data.error);
                 console.log(err);
                 setError(err.response.data.error);
+                inputRef.current.focus();
             })
     }
     return (
@@ -51,6 +53,7 @@ const AddNewStudent = () => {
                         <Form.Label>Email address</Form.Label>
                         {error && <div className={'alert alert-danger'}>{error}</div>}
                         <Form.Control type="email" placeholder="Enter email"
+                                      ref={inputRef}
                                       value={email} onChange={(event) => setEmail(event.target.value)}/>
                         <Form.Text className="text-muted">
                             We'll never share your email with anyone else.

@@ -31,7 +31,7 @@ const Students = () => {
                     <th>Email</th>
                     <th>First Name</th>
                     <th>Last Name</th>
-                    <th>City</th>
+                    <th>Country</th>
                     <th></th>
                 </tr>
                 </thead>
@@ -42,7 +42,7 @@ const Students = () => {
                         <td>{student.email}</td>
                         <td>{student.firstName}</td>
                         <td>{student.lastName}</td>
-                        <td>{student.city}</td>
+                        <td>{student.country}</td>
                         <td>
                             <Button style={{marginRight: "10px"}}>Edit</Button>
                             <Button>Delete</Button>

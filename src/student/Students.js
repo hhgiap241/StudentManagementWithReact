@@ -1,13 +1,14 @@
 import React, {useEffect, useState} from 'react';
 import axios from "axios";
-import {Table, Button} from "react-bootstrap";
+import {Button, Table} from "react-bootstrap";
 import {Link} from "react-router-dom";
 
 const api = axios.create({
     baseURL: "http://localhost:8080/api/students",
 })
-const StudentList = () => {
+const Students = () => {
     const [students, setStudents] = useState([]);
+    // const navigate = useNavigate();
     useEffect(() => {
         api.get("/")
             .then(res => {
@@ -17,7 +18,9 @@ const StudentList = () => {
     }, []);
 
     return (
-        <div>
+        <div className={'text-center'}>
+            <h1>Manage Students</h1>
+            <Link to={'/students/add'} className={"h3"}>Add New Student</Link>
             <Table striped bordered hover className="align-items-center text-center">
                 <thead style={{backgroundColor: "darkgrey"}}>
                 <tr>
@@ -45,9 +48,8 @@ const StudentList = () => {
                 ))}
                 </tbody>
             </Table>
-            <Link to={'/'}>Back to Home</Link>
         </div>
     );
 };
 
-export default StudentList;
+export default Students;

@@ -25,7 +25,6 @@ const Students = () => {
     return (
         <div className={'text-center'}>
             <h1>Manage Students</h1>
-            <Link to={'/students/add'} className={"h3"}>Add New Student</Link>
             <Table striped bordered hover className="align-items-center text-center">
                 <thead style={{backgroundColor: "darkgrey"}}>
                 <tr>

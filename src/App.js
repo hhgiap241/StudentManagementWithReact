@@ -6,10 +6,13 @@ import Students from "./student/Students";
 import Error from "./error/Error";
 import AddNewStudent from "./student/AddNewStudent";
 import StudentIdCards from "./student/StudentIdCards";
+import NavigationBar from "./home/NavigationBar";
+
 
 function App() {
     return (
         <Router>
+            <NavigationBar/>
             <Routes>
                 <Route path="/" element={<Home/>}/>
                 <Route path="/students" element={<Students/>}/>
@@ -18,9 +21,6 @@ function App() {
                 <Route path={'/students/id-cards'} element={<StudentIdCards/>}/>
                 <Route path="*" element={<Error/>}/>
             </Routes>
-            <div className={'text-center pt-5'}>
-                <Link to={'/'}>Back to Home</Link>
-            </div>
         </Router>
     );
 }

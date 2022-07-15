@@ -1,6 +1,6 @@
-/*.App {*/
-/*  text-align: center;*/
-/*}*/
+.App {
+  margin: 0px;
+}
 
 /*.App-logo {*/
 /*  height: 40vmin;*/
@@ -37,6 +37,3 @@
 /*  }*/
 /*}*/
 
-.App .a{
-    text-decoration: none;
-}

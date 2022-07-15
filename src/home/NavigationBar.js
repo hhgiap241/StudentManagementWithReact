@@ -1,32 +1,47 @@
 import React from 'react';
 import {Link} from "react-router-dom";
 import {Nav, Navbar, NavDropdown} from "react-bootstrap";
+import logo from '../react-1-logo.svg';
+import {BaseURLProvider} from "../contexts/BaseURLContext";
 // import '../style.css';
 
 const NavigationBar = () => {
     return (
         <Navbar bg="dark" variant="dark" style={{marginBottom: '13px'}}>
             <div className={'container-fluid'}>
-                <Navbar.Brand href="#home">Navbar</Navbar.Brand>
+                <Navbar.Brand href="/">
+                    <img
+                        alt="logo"
+                        src={logo}
+                        height={'40px'}
+                        width={'40px'}/>
+                </Navbar.Brand>
                 <Nav className="me-auto">
                     <Nav.Link href="/">Home</Nav.Link>
+
                     <NavDropdown title="Student" id="basic-nav-dropdown">
-                        <NavDropdown.Item>
-                            <Link to={'/students'} style={{textDecoration: 'none', color: '#212529'}}>Manage Students</Link>
-                        </NavDropdown.Item>
-                        <NavDropdown.Item>
-                            <Link to={'/students/id-cards'} style={{textDecoration: 'none', color: '#212529'}}>Manage Student Id Cards</Link>
-                        </NavDropdown.Item>
-                        <NavDropdown.Divider />
-                        <NavDropdown.Item>
-                            <Link to={'/students/add'} style={{textDecoration: 'none', color: '#212529'}}>Add New Student</Link>
-                        </NavDropdown.Item>
+                        <BaseURLProvider>
+                            <NavDropdown.Item>
+                                <Link to={'/students'} style={{textDecoration: 'none', color: '#212529'}}>Manage
+                                    Students</Link>
+                            </NavDropdown.Item>
+                            <NavDropdown.Item>
+                                <Link to={'/students/id-cards'} style={{textDecoration: 'none', color: '#212529'}}>Manage
+                                    Student Id Cards</Link>
+                            </NavDropdown.Item>
+                            <NavDropdown.Divider/>
+                            <NavDropdown.Item>
+                                <Link to={'/students/add'} style={{textDecoration: 'none', color: '#212529'}}>Add New
+                                    Student</Link>
+                            </NavDropdown.Item>
+                        </BaseURLProvider>
                     </NavDropdown>
-                    <Nav.Link href="#pricing">Pricing</Nav.Link>
+                    <Nav.Link href="#pricing">Book</Nav.Link>
+                    <Nav.Link href="#pricing">Course</Nav.Link>
                 </Nav>
                 <Navbar.Collapse className="justify-content-end">
                     <Navbar.Text style={{paddingRight: '3rem'}}>
-                        Signed in as: <a href="#login">Mark Otto</a>
+                        Hello, <a href="#login">Mark Otto</a>
                     </Navbar.Text>
                 </Navbar.Collapse>
             </div>

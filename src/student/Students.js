@@ -1,13 +1,18 @@
-import React, {useEffect, useState} from 'react';
+import React, {useContext, useEffect, useState} from 'react';
 import axios from "axios";
 import {Button, Table} from "react-bootstrap";
 import {Link} from "react-router-dom";
+import {BaseURLContext} from "../contexts/BaseURLContext";
 
-const api = axios.create({
-    baseURL: "http://localhost:8080/api/students",
-})
+// const api = axios.create({
+//     baseURL: "http://localhost:8080/api/v1/students",
+// })
 const Students = () => {
     const [students, setStudents] = useState([]);
+    const baseUrl = useContext(BaseURLContext);
+    const api = axios.create({
+        baseURL: baseUrl,
+    })
     // const navigate = useNavigate();
     useEffect(() => {
         api.get("/")

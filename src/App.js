@@ -5,6 +5,7 @@ import Home from "./home/Home";
 import Students from "./student/Students";
 import Error from "./error/Error";
 import AddNewStudent from "./student/AddNewStudent";
+import StudentIdCards from "./student/StudentIdCards";
 
 function App() {
     return (
@@ -13,6 +14,8 @@ function App() {
                 <Route path="/" element={<Home/>}/>
                 <Route path="/students" element={<Students/>}/>
                 <Route path={'/students/add'} element={<AddNewStudent/>}/>
+                <Route path={'/students/:id'} element={<Students/>}/>
+                <Route path={'/students/id-cards'} element={<StudentIdCards/>}/>
                 <Route path="*" element={<Error/>}/>
             </Routes>
             <div className={'text-center pt-5'}>

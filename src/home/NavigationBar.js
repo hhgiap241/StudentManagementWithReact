@@ -43,7 +43,7 @@ const NavigationBar = () => {
                             </NavDropdown.Item>
                             <NavDropdown.Divider/>
                             <NavDropdown.Item>
-                                <Link to={'/students/add'} style={{textDecoration: 'none', color: '#212529'}}>Add New
+                                <Link to={'/books/add'} style={{textDecoration: 'none', color: '#212529'}}>Add New
                                     Book</Link>
                             </NavDropdown.Item>
                         </BaseURLProvider>

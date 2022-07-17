@@ -25,7 +25,7 @@ const Courses = () => {
                 <thead style={{backgroundColor: "darkgrey"}}>
                 <tr>
                     <th>ID</th>
-                    <th>Name</th>
+                    <th>Title</th>
                     <th>Description</th>
                     <th>Attended Student</th>
                     <th></th>

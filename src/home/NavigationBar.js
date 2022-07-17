@@ -48,7 +48,19 @@ const NavigationBar = () => {
                             </NavDropdown.Item>
                         </BaseURLProvider>
                     </NavDropdown>
-                    <Nav.Link href="#pricing">Course</Nav.Link>
+                    <NavDropdown title="Courses" id="basic-nav-dropdown">
+                        <BaseURLProvider>
+                            <NavDropdown.Item>
+                                <Link to={'/courses'} style={{textDecoration: 'none', color: '#212529'}}>Manage
+                                    Courses</Link>
+                            </NavDropdown.Item>
+                            <NavDropdown.Divider/>
+                            <NavDropdown.Item>
+                                <Link to={'/courses/add'} style={{textDecoration: 'none', color: '#212529'}}>Add New
+                                    Course</Link>
+                            </NavDropdown.Item>
+                        </BaseURLProvider>
+                    </NavDropdown>
                 </Nav>
                 <Navbar.Collapse className="justify-content-end">
                     <Navbar.Text style={{paddingRight: '3rem'}}>

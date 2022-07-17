@@ -15,7 +15,7 @@ const AddNewStudent = () => {
     const inputRef = useRef();
     const baseUrl = useContext(BaseURLContext);
     const api = axios.create({
-        baseURL: baseUrl,
+        baseURL: baseUrl + '/students',
     })
     const handleCancel = () => {
         // go back to previous page

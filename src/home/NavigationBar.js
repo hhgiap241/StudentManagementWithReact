@@ -18,7 +18,6 @@ const NavigationBar = () => {
                 </Navbar.Brand>
                 <Nav className="me-auto">
                     <Nav.Link href="/">Home</Nav.Link>
-
                     <NavDropdown title="Student" id="basic-nav-dropdown">
                         <BaseURLProvider>
                             <NavDropdown.Item>
@@ -36,7 +35,19 @@ const NavigationBar = () => {
                             </NavDropdown.Item>
                         </BaseURLProvider>
                     </NavDropdown>
-                    <Nav.Link href="#pricing">Book</Nav.Link>
+                    <NavDropdown title="Books" id="basic-nav-dropdown">
+                        <BaseURLProvider>
+                            <NavDropdown.Item>
+                                <Link to={'/books'} style={{textDecoration: 'none', color: '#212529'}}>Manage
+                                    Books</Link>
+                            </NavDropdown.Item>
+                            <NavDropdown.Divider/>
+                            <NavDropdown.Item>
+                                <Link to={'/students/add'} style={{textDecoration: 'none', color: '#212529'}}>Add New
+                                    Book</Link>
+                            </NavDropdown.Item>
+                        </BaseURLProvider>
+                    </NavDropdown>
                     <Nav.Link href="#pricing">Course</Nav.Link>
                 </Nav>
                 <Navbar.Collapse className="justify-content-end">

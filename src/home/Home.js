@@ -4,7 +4,7 @@ import React from 'react';
 const Home = () => {
     return (
         <div className={'main'}>
-            <p>Some content here</p>
+            <h1 className={'text-center'}>Welcome to Student Management System</h1>
         </div>
         // <div className={'text-center'}>
         //     <BaseURLProvider>

@@ -9,7 +9,7 @@ const StudentIdCards = () => {
     const [id, setId] = useState(-1);
     const baseUrl = useContext(BaseURLContext);
     const api = axios.create({
-        baseURL: baseUrl,
+        baseURL: baseUrl + '/students',
     })
     useEffect(() => {
         api.get("/id-cards")

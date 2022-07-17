@@ -1,48 +1,45 @@
 import React, {useContext, useEffect, useState} from 'react';
+import {BaseURLContext} from "../contexts/BaseURLContext";
 import axios from "axios";
 import {Button, Table} from "react-bootstrap";
-import {BaseURLContext} from "../contexts/BaseURLContext";
 
-// const api = axios.create({
-//     baseURL: "http://localhost:8080/api/v1/students",
-// })
-const Students = () => {
-    const [students, setStudents] = useState([]);
+const Books = () => {
+    const [books, setBooks] = useState([]);
     const baseUrl = useContext(BaseURLContext);
     const api = axios.create({
-        baseURL: baseUrl + '/students',
+        baseURL: baseUrl + '/books',
     })
     // const navigate = useNavigate();
     useEffect(() => {
         api.get("/")
             .then(res => {
                 console.log(res.data);
-                setStudents(res.data);
+                setBooks(res.data);
             })
     }, []);
 
     return (
         <div className={'text-center'}>
-            <h1>Manage Students</h1>
+            <h1>Manage Books</h1>
             <Table striped bordered hover className="align-items-center text-center">
                 <thead style={{backgroundColor: "darkgrey"}}>
                 <tr>
                     <th>ID</th>
-                    <th>Email</th>
-                    <th>First Name</th>
-                    <th>Last Name</th>
-                    <th>Country</th>
+                    <th>Name</th>
+                    <th>Description</th>
+                    <th>Created Date</th>
+                    <th>Student Email</th>
                     <th></th>
                 </tr>
                 </thead>
                 <tbody>
-                {students.map(student => (
-                    <tr key={student.id}>
-                        <td>{student.id}</td>
-                        <td>{student.email}</td>
-                        <td>{student.firstName}</td>
-                        <td>{student.lastName}</td>
-                        <td>{student.country}</td>
+                {books.map(book => (
+                    <tr key={book.id}>
+                        <td>{book.id}</td>
+                        <td>{book.name}</td>
+                        <td>{book.description}</td>
+                        <td>{book.createdDate}</td>
+                        <td>{book.student?.email || 'Available'}</td>
                         <td>
                             <Button style={{marginRight: "10px"}}>Edit</Button>
                             <Button>Delete</Button>
@@ -55,4 +52,4 @@ const Students = () => {
     );
 };
 
-export default Students;
+export default Books;

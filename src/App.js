@@ -7,6 +7,7 @@ import Error from "./error/Error";
 import AddNewStudent from "./student/AddNewStudent";
 import StudentIdCards from "./student/StudentIdCards";
 import NavigationBar from "./home/NavigationBar";
+import Books from "./book/Books";
 
 
 function App() {
@@ -19,6 +20,7 @@ function App() {
                 <Route path={'/students/add'} element={<AddNewStudent/>}/>
                 <Route path={'/students/:id'} element={<Students/>}/>
                 <Route path={'/students/id-cards'} element={<StudentIdCards/>}/>
+                <Route path={'/books'} element={<Books/>}/>
                 <Route path="*" element={<Error/>}/>
             </Routes>
         </Router>

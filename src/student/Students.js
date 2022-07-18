@@ -2,8 +2,10 @@ import React, {useContext, useEffect, useState} from 'react';
 import axios from "axios";
 import {Button, Modal, Table} from "react-bootstrap";
 import {BaseURLContext} from "../contexts/BaseURLContext";
+import {useNavigate} from "react-router-dom";
 
 const Students = () => {
+    const navigate = useNavigate();
     const [students, setStudents] = useState([]);
     const [id, setId] = useState(-1);
     const [show, setShow] = useState(false);
@@ -57,6 +59,9 @@ const Students = () => {
             setShow(false);
         }
     }
+    const handleEditBtn = (id) =>{
+        navigate(`/students/${id}`);
+    }
     return (
         <div className={'text-center'}>
             <h1>Manage Students</h1>
@@ -82,7 +87,7 @@ const Students = () => {
                         <td>{student.lastName}</td>
                         <td>{student.country}</td>
                         <td>
-                            <Button style={{marginRight: "10px"}}>Edit</Button>
+                            <Button style={{marginRight: "10px"}} onClick={() => handleEditBtn(student.id)}>Edit</Button>
                             <Button onClick={() => handleShowModal(student.id)}>Delete</Button>
                         </td>
                     </tr>

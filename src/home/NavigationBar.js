@@ -1,5 +1,5 @@
 import React from 'react';
-import {Link} from "react-router-dom";
+import {Link, NavLink} from "react-router-dom";
 import {Nav, Navbar, NavDropdown} from "react-bootstrap";
 import logo from '../react-1-logo.svg';
 import {BaseURLProvider} from "../contexts/BaseURLContext";
@@ -9,7 +9,7 @@ const NavigationBar = () => {
     return (
         <Navbar bg="dark" variant="dark" style={{marginBottom: '13px'}}>
             <div className={'container-fluid'}>
-                <Navbar.Brand href="/">
+                <Navbar.Brand as={NavLink} to={'/'}>
                     <img
                         alt="logo"
                         src={logo}
@@ -17,47 +17,40 @@ const NavigationBar = () => {
                         width={'40px'}/>
                 </Navbar.Brand>
                 <Nav className="me-auto">
-                    <Nav.Link href="/">Home</Nav.Link>
-                    <NavDropdown title="Student" id="basic-nav-dropdown">
+                    <Nav.Link as={NavLink} to={'/'}>Home</Nav.Link>
+                    <NavDropdown title="Students" id="basic-nav-dropdown">
                         <BaseURLProvider>
-                            <NavDropdown.Item>
-                                <Link to={'/students'} style={{textDecoration: 'none', color: '#212529'}}>Manage
-                                    Students</Link>
+                            <NavDropdown.Item as={Link} to={'/students'}>
+                                Manage Students
                             </NavDropdown.Item>
-                            <NavDropdown.Item>
-                                <Link to={'/students/id-cards'} style={{textDecoration: 'none', color: '#212529'}}>Manage
-                                    Student Id Cards</Link>
+                            <NavDropdown.Item as={Link} to={'/students/id-cards'}>
+                                Manage Student Id Cards
                             </NavDropdown.Item>
                             <NavDropdown.Divider/>
-                            <NavDropdown.Item>
-                                <Link to={'/students/add'} style={{textDecoration: 'none', color: '#212529'}}>Add New
-                                    Student</Link>
+                            <NavDropdown.Item as={Link} to={'/students/add'}>
+                                Add New Student
                             </NavDropdown.Item>
                         </BaseURLProvider>
                     </NavDropdown>
                     <NavDropdown title="Books" id="basic-nav-dropdown">
                         <BaseURLProvider>
-                            <NavDropdown.Item>
-                                <Link to={'/books'} style={{textDecoration: 'none', color: '#212529'}}>Manage
-                                    Books</Link>
+                            <NavDropdown.Item as={Link} to={'/books'}>
+                                Manage Books
                             </NavDropdown.Item>
                             <NavDropdown.Divider/>
-                            <NavDropdown.Item>
-                                <Link to={'/books/add'} style={{textDecoration: 'none', color: '#212529'}}>Add New
-                                    Book</Link>
+                            <NavDropdown.Item as={Link} to={'/books/add'}>
+                                Add New Book
                             </NavDropdown.Item>
                         </BaseURLProvider>
                     </NavDropdown>
                     <NavDropdown title="Courses" id="basic-nav-dropdown">
                         <BaseURLProvider>
-                            <NavDropdown.Item>
-                                <Link to={'/courses'} style={{textDecoration: 'none', color: '#212529'}}>Manage
-                                    Courses</Link>
+                            <NavDropdown.Item as={Link} to={'/courses'}>
+                                Manage Courses
                             </NavDropdown.Item>
                             <NavDropdown.Divider/>
-                            <NavDropdown.Item>
-                                <Link to={'/courses/add'} style={{textDecoration: 'none', color: '#212529'}}>Add New
-                                    Course</Link>
+                            <NavDropdown.Item as={Link} to={'/courses/add'}>
+                                Add New Course
                             </NavDropdown.Item>
                         </BaseURLProvider>
                     </NavDropdown>

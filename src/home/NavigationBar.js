@@ -3,7 +3,6 @@ import {Link, NavLink} from "react-router-dom";
 import {Nav, Navbar, NavDropdown} from "react-bootstrap";
 import logo from '../react-1-logo.svg';
 import {BaseURLProvider} from "../contexts/BaseURLContext";
-// import '../style.css';
 
 const NavigationBar = () => {
     return (
@@ -62,22 +61,6 @@ const NavigationBar = () => {
                 </Navbar.Collapse>
             </div>
         </Navbar>
-        // <div className={'text-center'}>
-        //     <BaseURLProvider>
-        //         <div>
-        //             <Link to={'/students'} className={"h2 text-decoration-none"}>Manage Students</Link>
-        //         </div>
-        //         <div>
-        //             <Link to={'/students/id-cards'} className={"h2 text-decoration-none"}>Manage Students ID Card</Link>
-        //         </div>
-        //     </BaseURLProvider>
-        //     <div>
-        //         <Link to={'/books'} className={"h2 text-decoration-none"}>Manage Books</Link>
-        //     </div>
-        //     <div>
-        //         <Link to={'/courses'} className={"h2 text-decoration-none"}>Manage Courses</Link>
-        //     </div>
-        // </div>
     );
 };
 

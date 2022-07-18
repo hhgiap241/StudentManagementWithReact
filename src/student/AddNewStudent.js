@@ -11,7 +11,6 @@ const AddNewStudent = () => {
     const [lastName, setLastName] = useState('');
     const [country, setCountry] = useState('');
     const [error, setError] = useState('');
-    const [success, setSuccess] = useState('');
     const inputRef = useRef();
     const baseUrl = useContext(BaseURLContext);
     const api = axios.create({

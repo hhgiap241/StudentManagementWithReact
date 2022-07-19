@@ -50,8 +50,6 @@ const EditBook = () => {
         // go back to previous page
         navigate(-1);
     }
-
-
     return (
         <div>
             <h1 className={'text-center pt-3'}>Update Book</h1>

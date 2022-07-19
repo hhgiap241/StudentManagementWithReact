@@ -22,6 +22,10 @@ const Students = () => {
                 console.log(res.data);
                 setStudents(res.data);
             })
+            .catch(err => {
+                console.log(err);
+                setError(err.response.data.error);
+            })
     }, [id]); // only run this effect when id changes
     useEffect(() => {
         const timer = setTimeout(() => {

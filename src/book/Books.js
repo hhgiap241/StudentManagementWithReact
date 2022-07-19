@@ -2,10 +2,12 @@ import React, {useContext, useEffect, useState} from 'react';
 import {BaseURLContext} from "../contexts/BaseURLContext";
 import axios from "axios";
 import {Button, Table} from "react-bootstrap";
+import {useNavigate} from "react-router-dom";
 
 const Books = () => {
     const [books, setBooks] = useState([]);
     const baseUrl = useContext(BaseURLContext);
+    const navigate = useNavigate();
     const api = axios.create({
         baseURL: baseUrl + '/books',
     })
@@ -16,8 +18,14 @@ const Books = () => {
                 console.log(res.data);
                 setBooks(res.data);
             })
+            .catch(err => {
+                console.log(err);
+            })
     }, []);
 
+    const handleEditBtn = (id) => {
+        navigate(`/books/${id}`);
+    }
     return (
         <div className={'text-center'}>
             <h1>Manage Books</h1>
@@ -39,9 +47,9 @@ const Books = () => {
                         <td>{book.name}</td>
                         <td>{book.description}</td>
                         <td>{book.createdDate}</td>
-                        <td>{book.student?.email || 'Available'}</td>
+                        <td>{book.studentEmail || 'Available'}</td>
                         <td>
-                            <Button style={{marginRight: "10px"}}>Edit</Button>
+                            <Button style={{marginRight: "10px"}} onClick={() => handleEditBtn(book.id)}>Edit</Button>
                             <Button>Delete</Button>
                         </td>
                     </tr>

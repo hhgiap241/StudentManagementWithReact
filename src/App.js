@@ -12,6 +12,7 @@ import AddNewBook from "./book/AddNewBook";
 import Courses from "./course/Courses";
 import AddNewCourse from "./course/AddNewCourse";
 import EditStudent from "./student/EditStudent";
+import EditBook from "./book/EditBook";
 
 
 function App() {
@@ -25,6 +26,7 @@ function App() {
                 <Route path={'/students/:id'} element={<EditStudent/>}/>
                 <Route path={'/students/id-cards'} element={<StudentIdCards/>}/>
                 <Route path={'/books'} element={<Books/>}/>
+                <Route path={'/books/:id'} element={<EditBook/>}/>
                 <Route path={'/books/add'} element={<AddNewBook/>}/>
                 <Route path={'/courses'} element={<Courses/>}/>
                 <Route path={'/courses/add'} element={<AddNewCourse/>}/>

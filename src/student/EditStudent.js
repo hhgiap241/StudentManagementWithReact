@@ -174,7 +174,7 @@ const EditStudent = () => {
 
     return (
         <div>
-            <h1 className={'text-center pt-3'}>Add New Student</h1>
+            <h1 className={'text-center pt-3'}>Update Student</h1>
             <Form style={{maxWidth: '500px', margin: '0 auto'}}>
                 <div className={'border border-secondary rounded p-3'}>
                     <Form.Group className="mb-3" controlId="formBasicEmail">
